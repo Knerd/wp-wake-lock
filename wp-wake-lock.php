@@ -1,16 +1,17 @@
 <?php
-  /**
-   * @package WP Wake Lock
-   * @version 0.0.1
-   */
-  /*
-    Plugin Name: WP Wake Lock
-    Plugin URI: http://github.com/knerd/wp-wake-lock
-    Description: Adds a wake lock to the front end of your site
-    Author: Xopher Pollard
-    Version: 0.0.1
-    Author URI: http://github.com/xopherdeep/
-  */
+/**
+ * @package WP Wake Lock
+ * @version 0.0.1
+ */
+
+/*
+  Plugin Name: WP Wake Lock by Muuv
+  Plugin URI: http://github.com/knerd/wp-wake-lock
+  Description: Adds a wake lock to the front end of your site to help your users screen from falling asleep.
+  Author: Xopher Pollard
+  Version: 0.0.1
+  Author URI: http://github.com/xopherdeep/
+*/
 
 class XWakeLock{
   public function __construct() {
