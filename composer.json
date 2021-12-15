@@ -1,0 +1,12 @@
+{
+    "name": "knerd/wp-wake-lock",
+    "description": "Adds a wake lock to the front end of your site",
+    "type": "wp-plugin",
+    "authors": [
+        {
+            "name": "xopherdeep",
+            "email": "cdpollard@gmail.com"
+        }
+    ],
+    "require": {}
+}
