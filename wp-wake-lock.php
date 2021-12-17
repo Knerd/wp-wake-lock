@@ -22,37 +22,27 @@ class XWakeLock{
       // Register hook to add a menu to the admin page
       add_action('wp_enqueue_scripts', [ $this, 'load_scripts' ]);
 
+      // Not yet...
       // add_action('admin_menu', [ $this, 'add_admin_menu' ]);
   }
 
   public function add_admin_menu() {
-      // add_menu_page(
-      //     'Wake Lock',
-      //     'Wake Lock',
-      //     'manage_options',
-      //     'x-wake-lock',
-      //     [ $this, 'load_plugin_admin_page' ],
-      //     'dashicons-smiley',
-      //     4
-      // );
+      add_menu_page(
+          'Wake Lock',
+          'Wake Lock',
+          'manage_options',
+          'x-wake-lock',
+          [ $this, 'load_plugin_admin_page' ],
+          'dashicons-smiley',
+          4
+      );
   }
 
   public function load_plugin_admin_page() {
-      // wp_enqueue_style( 'backend-style' );
-      // wp_enqueue_script( 'backend-script' );
+      wp_enqueue_style( 'backend-style' );
+      wp_enqueue_script( 'backend-script' );
 
-      // require_once 'templates/plugin-admin.php';
-  }
-
-  public function url_exists($url) {
-      $file_headers = @get_headers($url);
-      if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-          $exists = false;
-      }
-      else {
-          $exists = true;
-      }
-      return $exists;
+      require_once 'templates/plugin-admin.php';
   }
 
   public function load_scripts() {
