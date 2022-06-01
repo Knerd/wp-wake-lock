@@ -4,11 +4,17 @@ let wakeLock = null;
 // Function that attempts to request a screen wake lock.
 const requestWakeLock = async () => {
   try {
-    wakeLock = await navigator.wakeLock.request();
-    wakeLock.addEventListener('release', (e) => {
-      console.log('Screen Wake Lock released:', wakeLock.released, e);
-    });
-    // console.log('Screen Wake Lock released:', wakeLock.released);
+    if(navigator.wakeLock){
+      wakeLock = await navigator.wakeLock.request();
+      wakeLock.addEventListener('release', (e) => {
+        console.info('Screen Wake Lock released:', wakeLock.released, e);
+        // attempt to keep hold of wakeLock
+        wakeLock = navigator.wakeLock.request();
+      });
+      console.info('Screen Wake Lock released:', wakeLock.released);
+    }else{
+      console.warn('Navigator wakeLock not available', navigator.wakeLock)
+    }
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);
   }
@@ -16,11 +22,3 @@ const requestWakeLock = async () => {
 
 // Request a screen wake lock…
 requestWakeLock();
-// …and release it again after 5s.
-
-// window.setTimeout(() => {
-//   wakeLock.release();
-//   wakeLock = null;
-// }, 60 * 60 * 2);
-
-// console.log(wakeLock);
